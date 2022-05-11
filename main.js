@@ -22,7 +22,7 @@ function getReviews(e) {
     div.innerHTML = ``;
     data = result.data
     sources = new Map();
-    for (let i = 0; i < data.reviews.length; i++) {
+    for (let i = 0; i < data.review_contents.length; i++) {
       
       review_content = result.data.review_contents[i]
       src = review_content.source.toUpperCase()
@@ -64,7 +64,7 @@ function getReviews(e) {
             DoubleCheck's Score: ${n_stars}/10\n
           </p>
           <p>
-          number of reviews: ${data.reviews.length}
+          number of reviews: ${data.review_contents.length}
           </p>
         </div>
         <div class="card_right_2">
@@ -76,18 +76,18 @@ function getReviews(e) {
 
         `
     div.innerHTML += content
-    for (let i = 0; i < data.reviews.length; i++) {
+    for (let i = 0; i < data.review_contents.length; i++) {
       review_content = result.data.review_contents[i]
       // console.log(review_content.sentiment)
       div.innerHTML += 
       `<li style="list-style: none;">
         <div class="border">
-          <div class="product_image">
+          <div style="padding-left:15px" class="product_image">
           <p> 
             ${review_content.source.toUpperCase()}
           </p>
           <p>
-          
+          <a href="${review_content.link}">link to review</a>
           </p>
           </div>
           <div class="product_content">
